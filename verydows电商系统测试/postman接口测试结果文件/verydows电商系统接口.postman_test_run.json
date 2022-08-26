@@ -1,151 +1,290 @@
 {
-	"id": "9a8fb9e0-fe05-47ea-b77d-ed98a9ceff6b",
-	"name": "verydows电商系统接口",
-	"timestamp": "2022-08-26T09:11:13.889Z",
-	"collection_id": "22665513-a332b220-dee5-4a96-bee6-692ea0ef5090",
-	"folder_id": 0,
-	"environment_id": "0",
-	"totalPass": 6,
-	"totalFail": 0,
-	"results": [
+	"info": {
+		"_postman_id": "a332b220-dee5-4a96-bee6-692ea0ef5090",
+		"name": "verydows电商系统接口",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22665513"
+	},
+	"item": [
 		{
-			"id": "4bec799e-52e9-4e01-b28c-7460a04d677f",
 			"name": "test-01-登录接口测试",
-			"url": "http://localhost:8000/verydows-master/index.php?c=user&a=login&step=submit",
-			"time": 43,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true,
-				"登录成功": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				},
-				"登录成功": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				43
-			],
-			"allTests": [
+			"event": [
 				{
-					"Status code is 200": true,
-					"登录成功": true
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"登录成功\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"登录成功\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "liwend",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "200c6d94e583e62c6964de3acdc723e5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/verydows-master/index.php?c=user&a=login&step=submit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"verydows-master",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "c",
+							"value": "user"
+						},
+						{
+							"key": "a",
+							"value": "login"
+						},
+						{
+							"key": "step",
+							"value": "submit"
+						}
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "4431027f-8091-4976-bc2d-e9bf0b70331a",
+			"name": "手机商品接口测试",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"tests[\"Body matches string \"] = responseBody.has('>Apple/苹果 iPhone 13 - Verydows 开源电商系统');\r",
+							"pm.collectionVariables.get(\"variable_key\");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "Pycharm-a30d9a5f=98acb46d-2769-4fd9-972a-f40c238bf060; VDSSKEY=2j7a03298q1vuv1a15rd76p829; UVID=0c7adaf0d2623c0c0672afa3e5e0be8d; LOGINED_USER=liwenda; FOOTPRINT=1%2C3; CARTS=%7B%223%22%3A%7B%22id%22%3A%223%22%2C%22qty%22%3A%222%22%2C%22opts%22%3A%5B%5D%7D%7D",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/verydows-master/goods/index.html?id={{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"verydows-master",
+						"goods",
+						"index.html"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "单独商品接口测试",
-			"url": "http://localhost:8000/verydows-master/index.php?m=api&c=goods&a=reviews&goods_id=1",
-			"time": 16,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "page",
+						"value": "1",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "Pycharm-a30d9a5f=98acb46d-2769-4fd9-972a-f40c238bf060; VDSSKEY=2j7a03298q1vuv1a15rd76p829; UVID=0c7adaf0d2623c0c0672afa3e5e0be8d; LOGINED_USER=liwenda; FOOTPRINT=1%2C3; CARTS=%7B%223%22%3A%7B%22id%22%3A%223%22%2C%22qty%22%3A%222%22%2C%22opts%22%3A%5B%5D%7D%7D",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/verydows-master/index.php?m=api&c=goods&a=reviews&goods_id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"verydows-master",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "m",
+							"value": "api"
+						},
+						{
+							"key": "c",
+							"value": "goods"
+						},
+						{
+							"key": "a",
+							"value": "reviews"
+						},
+						{
+							"key": "goods_id",
+							"value": "1"
+						}
+					]
+				}
 			},
-			"tests": {},
-			"testPassFailCounts": {},
-			"times": [
-				16
-			],
-			"allTests": [
-				{}
-			]
+			"response": []
 		},
 		{
-			"id": "16432f16-e407-4f2e-994d-6d30c12f7bde",
 			"name": "搜索接口",
-			"url": "http://localhost:8000/verydows-master/index.php?c=search&a=index&kw=%E5%B0%8F%E7%B1%B3",
-			"time": 43,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Body matches string": true,
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Body matches string": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				43
-			],
-			"allTests": [
+			"event": [
 				{
-					"Body matches string": true,
-					"Status code is 200": true
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"默认排序\");\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "kw=",
+							"value": "iPhone",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/verydows-master/index.php?c=search&a=index",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"verydows-master",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "c",
+							"value": "search"
+						},
+						{
+							"key": "a",
+							"value": "index"
+						}
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "afc67215-d53f-41d6-ab0a-a813ce97e862",
 			"name": "添加购物车列表接口",
-			"url": "http://localhost:8000/verydows-master/index.php?m=api&c=cart&a=list",
-			"time": 31,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"data status": true,
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"data status": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				31
-			],
-			"allTests": [
+			"event": [
 				{
-					"data status": true,
-					"Status code is 200": true
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"data status\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.status).to.eql('success');\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "CARTS=%7B%221%22%3A%7B%22id%22%3A%221%22%2C%22qty%22%3A%221%22%2C%22opts%22%3A%5B%5D%7D%2C%223%22%3A%7B%22id%22%3A%223%22%2C%22qty%22%3A%222%22%2C%22opts%22%3A%5B%5D%7D%7D",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/verydows-master/index.php?m=api&c=cart&a=list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"verydows-master",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "m",
+							"value": "api"
+						},
+						{
+							"key": "c",
+							"value": "cart"
+						},
+						{
+							"key": "a",
+							"value": "list"
+						}
+					]
+				}
+			},
+			"response": []
 		}
-	],
-	"count": 1,
-	"totalTime": 133,
-	"collection": {
-		"requests": [
-			{
-				"id": "4bec799e-52e9-4e01-b28c-7460a04d677f",
-				"method": "POST"
-			},
-			{
-				"id": "4431027f-8091-4976-bc2d-e9bf0b70331a",
-				"method": "GET"
-			},
-			{
-				"id": "16432f16-e407-4f2e-994d-6d30c12f7bde",
-				"method": "GET"
-			},
-			{
-				"id": "afc67215-d53f-41d6-ab0a-a813ce97e862",
-				"method": "GET"
-			}
-		]
-	}
+	]
 }
