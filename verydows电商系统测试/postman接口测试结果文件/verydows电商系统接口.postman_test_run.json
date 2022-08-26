@@ -1,0 +1,151 @@
+{
+	"id": "9a8fb9e0-fe05-47ea-b77d-ed98a9ceff6b",
+	"name": "verydows电商系统接口",
+	"timestamp": "2022-08-26T09:11:13.889Z",
+	"collection_id": "22665513-a332b220-dee5-4a96-bee6-692ea0ef5090",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 6,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "4bec799e-52e9-4e01-b28c-7460a04d677f",
+			"name": "test-01-登录接口测试",
+			"url": "http://localhost:8000/verydows-master/index.php?c=user&a=login&step=submit",
+			"time": 43,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"登录成功": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"登录成功": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				43
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"登录成功": true
+				}
+			]
+		},
+		{
+			"id": "4431027f-8091-4976-bc2d-e9bf0b70331a",
+			"name": "单独商品接口测试",
+			"url": "http://localhost:8000/verydows-master/index.php?m=api&c=goods&a=reviews&goods_id=1",
+			"time": 16,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				16
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "16432f16-e407-4f2e-994d-6d30c12f7bde",
+			"name": "搜索接口",
+			"url": "http://localhost:8000/verydows-master/index.php?c=search&a=index&kw=%E5%B0%8F%E7%B1%B3",
+			"time": 43,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Body matches string": true,
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				43
+			],
+			"allTests": [
+				{
+					"Body matches string": true,
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "afc67215-d53f-41d6-ab0a-a813ce97e862",
+			"name": "添加购物车列表接口",
+			"url": "http://localhost:8000/verydows-master/index.php?m=api&c=cart&a=list",
+			"time": 31,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"data status": true,
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"data status": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				31
+			],
+			"allTests": [
+				{
+					"data status": true,
+					"Status code is 200": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 133,
+	"collection": {
+		"requests": [
+			{
+				"id": "4bec799e-52e9-4e01-b28c-7460a04d677f",
+				"method": "POST"
+			},
+			{
+				"id": "4431027f-8091-4976-bc2d-e9bf0b70331a",
+				"method": "GET"
+			},
+			{
+				"id": "16432f16-e407-4f2e-994d-6d30c12f7bde",
+				"method": "GET"
+			},
+			{
+				"id": "afc67215-d53f-41d6-ab0a-a813ce97e862",
+				"method": "GET"
+			}
+		]
+	}
+}

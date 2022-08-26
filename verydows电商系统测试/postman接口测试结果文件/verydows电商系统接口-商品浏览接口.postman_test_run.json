@@ -1,0 +1,64 @@
+{
+	"id": "aa911cc8-e0a3-4e59-9b4a-6ab215342a56",
+	"name": "verydows电商系统接口",
+	"timestamp": "2022-08-26T09:09:54.349Z",
+	"collection_id": "22665513-a332b220-dee5-4a96-bee6-692ea0ef5090",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 4,
+	"totalFail": 2,
+	"results": [
+		{
+			"id": "0364a877-e3dc-4901-837b-866e5076f585",
+			"name": "手机商品接口测试",
+			"time": 43,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string ": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Body matches string ": {
+					"pass": 1,
+					"fail": 2
+				}
+			},
+			"times": [
+				36,
+				42,
+				43
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string ": true
+				},
+				{
+					"Status code is 200": true,
+					"Body matches string ": false
+				},
+				{
+					"Status code is 200": true,
+					"Body matches string ": false
+				}
+			]
+		}
+	],
+	"count": 3,
+	"totalTime": 121,
+	"collection": {
+		"requests": [
+			{
+				"id": "0364a877-e3dc-4901-837b-866e5076f585",
+				"method": "GET"
+			}
+		]
+	}
+}
